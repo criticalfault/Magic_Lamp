@@ -5,15 +5,14 @@ import RPi.GPIO as GPIO # import our GPIO library
 app = Bottle()
 GPIO.setmode(GPIO.BOARD) # set the board numbering system to BCM
 
-# setup our output pins
-GPIO.setup(8,GPIO.OUT) #
-GPIO.setup(10,GPIO.OUT)
-GPIO.setup(12,GPIO.OUT)
-
-GPIO.cleanup() # in case we failed without cleaning up!
-
 @app.get('/')
 def index():
+	GPIO.setmode(GPIO.BOARD) # set the board numbering system to BCM
+
+	# setup our output pins
+	GPIO.setup(8,GPIO.OUT) #
+	GPIO.setup(10,GPIO.OUT)
+	GPIO.setup(12,GPIO.OUT)
     return template('index')
 
 @app.post('/off')
