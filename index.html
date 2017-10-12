@@ -28,7 +28,7 @@
 		</div>
 	<div>
 	<hr>
-		<div class="btn btn-danger btn-block col-sm-6 col-xs-10">Shutdown Lamp</div>
+		<div onclick="shutdown()" class="btn btn-danger btn-block col-sm-6 col-xs-10">Shutdown Lamp</div>
 	<script type="text/javascript">
 		
 		function turnOff()
@@ -45,21 +45,6 @@
 		 	});
 		}
 
-		function turnOn()
-		{
-			$.ajax({
-			  method: "POST",
-			  url: "/on",
-			})
-		  .done(function() {
-		    //alert( "Lamp is now ON" );
-		    $('#power').html('ON');
-		  })
-		  .fail(function() {
-		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
-		 	});
-		}
-
 		function turnRed()
 		{
 			$.ajax({
@@ -67,6 +52,7 @@
 			  url: "/colorRed",
 			}).done(function() {
 		    $('#color').html('RED');
+		    $('#power').html('ON');
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -79,7 +65,8 @@
 			  method: "POST",
 			  url: "/colorBlue",
 			}).done(function() {
-		    $('#color').html('RED');
+		    $('#color').html('BLUE');
+		    $('#power').html('ON');
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -95,12 +82,27 @@
 			})
 		  .done(function() {
 		    $('#color').html('WHITE');
+		    $('#power').html('ON');
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
 		 	});
 		}
 
+		function shutdown()
+		{
+			$.ajax({
+			  method: "POST",
+			  url: "/shutdown",
+			})
+		  .done(function() {
+		    $('#color').html('NONE');
+		    $('#power').html('OFF');
+		  })
+		  .fail(function() {
+		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
+		 	});
+		}
 	</script>
 </body>
 </html>
