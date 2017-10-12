@@ -22,6 +22,7 @@
 			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnOn()">Turn On</div>
 			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnOff()">Turn Off</div>
 			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnRed()">Turn Red</div>
+			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnBlue()">Turn Blue</div>
 			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnWhite()">Turn White</div>
 		</div>
 	<div>
@@ -45,9 +46,6 @@
 
 		function turnOn()
 		{
-
-
-
 			$.ajax({
 			  method: "POST",
 			  url: "/on",
@@ -73,6 +71,20 @@
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
 		 	});
 		}
+
+		function turnBlue()
+		{
+			$.ajax({
+			  method: "POST",
+			  url: "/colorBlue",
+			}).done(function() {
+		    $('#color').html('RED');
+		  })
+		  .fail(function() {
+		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
+		 	});
+		}
+
 
 		function turnWhite()
 		{
