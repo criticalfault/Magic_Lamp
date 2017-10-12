@@ -13,7 +13,7 @@ def index():
 	GPIO.setup(8,GPIO.OUT) #
 	GPIO.setup(10,GPIO.OUT)
 	GPIO.setup(12,GPIO.OUT)
-    return template('index')
+	return template('index')
 
 @app.post('/off')
 def off():
