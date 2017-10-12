@@ -65,4 +65,4 @@ def shutdown():
 	print "Shutdown"
 	GPIO.cleanup() # the clean-up function will reset all the configurations made in this script. This will stop the warnings we got from the tutorial 2.
 
-run(app, host='localhost', port=8080)	
+run(app, host='192.168.0.35', port=8080)	
