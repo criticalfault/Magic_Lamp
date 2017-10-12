@@ -1,6 +1,6 @@
 from bottle import Bottle, route, run, template
 from time import sleep # import the time function from the sleep library
-#import RPi.GPIO as GPIO # import our GPIO library
+import RPi.GPIO as GPIO # import our GPIO library
 
 app = Bottle()
 GPIO.setmode(GPIO.BOARD) # set the board numbering system to BCM
