@@ -16,18 +16,13 @@ GPIO.cleanup() # in case we failed without cleaning up!
 def index():
     return template('index')
 
-@app.post('/on')
-def on():
-	print "Turning Lights On"
-	return
-
 @app.post('/off')
 def off():
 	print "Turning Lights Off"
 	GPIO.output(8,False)
 	GPIO.output(10,False)
 	GPIO.output(12,False)
-	return
+	return {"Off" : True}
 
 @app.post('/colorWhite')
 def colorWhite():
@@ -37,21 +32,21 @@ def colorWhite():
 	GPIO.output(10,True)
 	GPIO.output(12,True)
 	sleep(1) # sleep for 1 second
-	return
+	return {'light': True}
 
 @app.post('/colorRed')
 def colorRed():
 	print "Turning light Red"
 	GPIO.output(8,True)
 	sleep(1) # sleep for 1 second
-	return
+	return {'light': True}
 
 @app.post('/colorBlue')
 def colorRed():
 	print "Turning light Blue"
 	GPIO.output(10,True)
 	sleep(1) # sleep for 1 second
-	return
+	return {'light': True}
 
 @app.post('/colorGreen')
 def colorRed():
@@ -59,7 +54,7 @@ def colorRed():
 	# Turn LEDs on
 	GPIO.output(12,True)
 	sleep(1) # sleep for 1 second
-	return
+	return {'light': True}
 
 @app.post('/shutdown')
 def shutdown():
@@ -68,6 +63,6 @@ def shutdown():
 	GPIO.output(10,False)
 	GPIO.output(12,False)
 	GPIO.cleanup() # the clean-up function will reset all the configurations made in this script. This will stop the warnings we got from the tutorial 2.
-	return
-	
+	return {'Shutdown': True}
+
 run(app, host='192.168.0.35', port=8080)	
