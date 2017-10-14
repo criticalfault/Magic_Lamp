@@ -57,7 +57,8 @@
 			  url: "/colorRed",
 			}).done(function(e) 
 			{
-				(e ? $('#red').html('ON') : $('#red').html('OFF'))	
+				console.log
+				(e.light ? $('#red').html('ON') : $('#red').html('OFF'))	
 		  	})
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -69,9 +70,10 @@
 			$.ajax({
 			  method: "POST",
 			  url: "/colorGreen",
-			}).done(function(e) {
-		    (e ? $('#green').html('ON') : $('#green').html('OFF'))
-		  })
+			}).done(function(e) 
+			{
+		    	(e.light ? $('#green').html('ON') : $('#green').html('OFF'))
+		  	})
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
 		 	});
@@ -83,10 +85,11 @@
 			$.ajax({
 			  method: "POST",
 			  url: "/colorBlue",
-			}).done(function(e) {
-		    (e ? $('#blue').html('ON') : $('#blue').html('OFF'))
-		  })
-		  .fail(function() {
+			}).done(function(e) 
+			{
+		    	(e.light ? $('#blue').html('ON') : $('#blue').html('OFF'))
+		  	})
+		  	.fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
 		 	});
 		}
@@ -97,7 +100,8 @@
 			  method: "POST",
 			  url: "/shutdown",
 			})
-		  .done(function() {
+		  .done(function() 
+		  {
 		    $('#color').html('NONE');
 		    $('#power').html('OFF');
 		  })
