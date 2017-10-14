@@ -16,6 +16,9 @@ def index():
 	GPIO.setup(8,GPIO.OUT) #
 	GPIO.setup(10,GPIO.OUT)
 	GPIO.setup(12,GPIO.OUT)
+	global redLight
+	global blueLight
+	global greenLight
 	redLight = 0
 	blueLight = 0
 	greenLight = 0
@@ -23,6 +26,12 @@ def index():
 
 @app.post('/off')
 def off():
+	global redLight
+	global blueLight
+	global greenLight
+	redLight = 0
+	blueLight = 0
+	greenLight = 0
 	print "Turning Lights Off"
 	GPIO.output(8,False)
 	GPIO.output(10,False)
@@ -41,6 +50,7 @@ def colorWhite():
 
 @app.post('/colorRed')
 def colorRed():
+	global redLight
 	if redLight == 0:
 		print "Turning light Red on"
 		GPIO.output(8,True)
@@ -56,6 +66,7 @@ def colorRed():
 
 @app.post('/colorBlue')
 def colorBlue():
+	global blueLight
 	if blueLight == 0:
 		print "Turning light Blue on"
 		GPIO.output(10,True)
@@ -71,6 +82,7 @@ def colorBlue():
 
 @app.post('/colorGreen')
 def colorGreen():
+	global greenLight
 	if greenLight == 0:
 		print "Turning light Green on"
 		# Turn LEDs on
