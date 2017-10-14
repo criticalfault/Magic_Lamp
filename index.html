@@ -14,7 +14,12 @@
 <body>
 	<h1 style="text-align: center;">Spooky Lamp v1.0</h1>
 	<hr>
-		<p style="text-align: center;">Lamp is currently: <span id="power">OFF</span> and <span id='color'>WHITE</span> </p>
+		<p style="text-align: center;">Lamp Feeds</p>
+		<p>Red:<span id='red'>Off</span></p>
+		<p>Blue:<span id='blue'>Off</span></p>
+		<p>Green:<span id="green">Off</span></p>
+
+
 	<hr>
 
 	<div class='container'>
@@ -36,7 +41,9 @@
 			  url: "/off",
 			})
 			  .done(function( ) {
-			    $('#power').html('OFF');
+			    $('#red').html('OFF');
+			    $('#blue').html('OFF');
+			    $('#green').html('OFF');
 			  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -48,10 +55,10 @@
 			$.ajax({
 			  method: "POST",
 			  url: "/colorRed",
-			}).done(function() {
-		    $('#color').html('RED');
-		    $('#power').html('ON');
-		  })
+			}).done(function(e) 
+			{
+				(e ? $('#red').html('ON'); : $('#red').html('OFF');)	
+		  	})
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
 		 	});
@@ -62,9 +69,8 @@
 			$.ajax({
 			  method: "POST",
 			  url: "/colorGreen",
-			}).done(function() {
-		    $('#color').html('GREEN');
-		    $('#power').html('ON');
+			}).done(function(e) {
+		    (e ? $('#green').html('ON'); : $('#green').html('OFF');)
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -77,9 +83,8 @@
 			$.ajax({
 			  method: "POST",
 			  url: "/colorBlue",
-			}).done(function() {
-		    $('#color').html('BLUE');
-		    $('#power').html('ON');
+			}).done(function(e) {
+		    (e ? $('#blue').html('ON'); : $('#blue').html('OFF');)
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
