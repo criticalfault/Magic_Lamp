@@ -16,6 +16,9 @@ def index():
 	GPIO.setup(8,GPIO.OUT) #
 	GPIO.setup(10,GPIO.OUT)
 	GPIO.setup(12,GPIO.OUT)
+	redLight = 0
+	blueLight = 0
+	greenLight = 0
 	return template('index')
 
 @app.post('/off')
