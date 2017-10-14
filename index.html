@@ -19,12 +19,10 @@
 
 	<div class='container'>
 		<div class='row'>
-			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnOn()">Turn On</div>
 			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnOff()">Turn Off</div>
-			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnRed()">Turn Red</div>
-			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnGreen()">Turn Green</div>
-			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnBlue()">Turn Blue</div>
-			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnWhite()">Turn White</div>
+			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnRed()">Toggle Red</div>
+			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnGreen()">Toggle Green</div>
+			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="turnBlue()">Toggle Blue</div>
 		</div>
 	<div>
 	<hr>
@@ -66,22 +64,6 @@
 			  url: "/colorBlue",
 			}).done(function() {
 		    $('#color').html('BLUE');
-		    $('#power').html('ON');
-		  })
-		  .fail(function() {
-		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
-		 	});
-		}
-
-
-		function turnWhite()
-		{
-			$.ajax({
-			  method: "POST",
-			  url: "/colorWhite",
-			})
-		  .done(function() {
-		    $('#color').html('WHITE');
 		    $('#power').html('ON');
 		  })
 		  .fail(function() {
