@@ -69,13 +69,13 @@ def colorBlue():
 	global blueLight
 	if blueLight == 0:
 		print "Turning light Blue on"
-		GPIO.output(10,True)
+		GPIO.output(12,True)
 		sleep(1) # sleep for 1 second
 		blueLight = 1
 		return {'light': True}
 	else:
 		print "Turning light Blue off"
-		GPIO.output(10,False)
+		GPIO.output(12,False)
 		sleep(1) # sleep for 1 second
 		blueLight = 0
 		return {'light': False}
@@ -86,14 +86,14 @@ def colorGreen():
 	if greenLight == 0:
 		print "Turning light Green on"
 		# Turn LEDs on
-		GPIO.output(12,True)
+		GPIO.output(10,True)
 		greenLight = 1
 		sleep(1) # sleep for 1 second
 		return {'light': True}
 	else:
 		print "Turning light Green off"
 		# Turn LEDs on
-		GPIO.output(12,False)
+		GPIO.output(10,False)
 		greenLight = 0
 		sleep(1) # sleep for 1 second
 		return {'light': False}
