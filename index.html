@@ -57,7 +57,7 @@
 			  url: "/colorRed",
 			}).done(function(e) 
 			{
-				(e ? $('#red').html('ON'); : $('#red').html('OFF');)	
+				(e ? $('#red').html('ON') : $('#red').html('OFF'))	
 		  	})
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -70,7 +70,7 @@
 			  method: "POST",
 			  url: "/colorGreen",
 			}).done(function(e) {
-		    (e ? $('#green').html('ON'); : $('#green').html('OFF');)
+		    (e ? $('#green').html('ON') : $('#green').html('OFF'))
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
@@ -84,7 +84,7 @@
 			  method: "POST",
 			  url: "/colorBlue",
 			}).done(function(e) {
-		    (e ? $('#blue').html('ON'); : $('#blue').html('OFF');)
+		    (e ? $('#blue').html('ON') : $('#blue').html('OFF'))
 		  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
