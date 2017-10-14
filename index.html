@@ -57,6 +57,21 @@
 		 	});
 		}
 
+		function turnGreen()
+		{
+			$.ajax({
+			  method: "POST",
+			  url: "/colorGreen",
+			}).done(function() {
+		    $('#color').html('GREEN');
+		    $('#power').html('ON');
+		  })
+		  .fail(function() {
+		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
+		 	});
+		}
+
+
 		function turnBlue()
 		{
 			$.ajax({
