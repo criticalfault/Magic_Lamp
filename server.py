@@ -98,6 +98,13 @@ def colorGreen():
 		sleep(1) # sleep for 1 second
 		return {'light': False}
 
+@app.post('/colorStatus')
+def getStatus():
+	global greenLight
+	global blueLight
+	global redLight
+	return {'greenLight':greenLight,'blueLight':blueLight, 'redLight':redLight}
+
 
 @app.post('/shutdown')
 def shutdown():
