@@ -110,6 +110,25 @@
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
 		 	});
 		}
+		
+		setInterval(function()
+		{
+			function turnOff()
+			{
+				$.ajax({
+				  method: "POST",
+				  url: "/lightStatus",
+				})
+				  .done(function(e) {
+				    	$('#red').html(e.redLight);
+			    		$('#blue').html(e.blueLight);
+			    		$('#green').html(e.greenLight);
+				  })
+			  .fail(function() {
+			    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
+				});
+			}	
+		},2000);
 	</script>
 </body>
 </html>
